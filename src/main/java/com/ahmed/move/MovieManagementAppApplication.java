@@ -8,9 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @OpenAPIDefinition(
         info = @Info(
-                title = "Fawry Code Test",
+                title = "Fawry Movie App Management",
                 version = "1.0",
-                description = "Fawry Code Test"
+                description = "Fawry Movie App Management"
         )
 )
 public class MovieManagementAppApplication {
