@@ -39,7 +39,7 @@ public class MovieController {
     }
 
     @PostMapping ("/search-in-OMDB-And-AddtoDB")
-    @Operation(summary = "Search for specific movie in OMDB server And Add to DB[Amin]")
+    @Operation(summary = "Search for specific movie in OMDB server And Add to Local-DB[Amin]")
     public ResponseEntity<GeneralResponseDto> searchAndAddMovie(@RequestParam String title) {
         OMDB_MovieResponseDto movieDetails = omdbClient.getMovieDetails(title);
         MovieResponseDTO response = movieService.saveFromOmdb(movieDetails);
@@ -53,7 +53,7 @@ public class MovieController {
     }
 
 
-    @PostMapping("/add")
+    @PostMapping("/addoutsideOMDB")
     @Operation(summary = "Add a new movie to app database Manually [Amin]")
     public ResponseEntity<GeneralResponseDto> addMovie(@RequestBody MovieRequestDTO movieRequestDTO) {
         MovieResponseDTO response = movieService.save(movieRequestDTO);
