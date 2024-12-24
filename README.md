@@ -1,3 +1,26 @@
+
+
+
+
+                                                                       First, note that 
+                                                                       Run the app docu on swagger by this link {http://localhost:8080/swagger-ui/index.html?continu}
+                                                                       /*
+                                                                        * We have two users
+                                                                        * admin with password 1111
+                                                                        * user with password 2222
+                                                                        * */
+
+
+
+
+
+
+
+
+
+
+
+
 Project Structure Overview
 backend/
 ├── config/                          # Configuration files for application setup
