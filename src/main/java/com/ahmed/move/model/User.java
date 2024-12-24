@@ -18,5 +18,8 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 }
-
-
+/*
+* We have two users
+* admin with password 1111
+* user with password 2222
+* */

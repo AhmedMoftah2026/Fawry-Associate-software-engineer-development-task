@@ -16,7 +16,7 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests(authrequest ->{
 //            authrequest.requestMatchers("/auth/login").permitAll()
-            authrequest.requestMatchers("/movie/search-in-OMDB","/movie/delete/**","/movie/search-in-OMDB-And-AddtoDB/**","/movie//addoutsideOMDB").hasRole("ADMIN"); // السماح للجميع بالبحث عن الأفلام
+            authrequest.requestMatchers("/movie/search-in-OMDB","/movie/delete/**","/movie/search-in-OMDB-And-AddtoDB/**","/movie//addoutsideOMDB").hasRole("ADMIN");
 //            authrequest.requestMatchers("/movie/add", "/movie/delete/**").hasRole("ADMIN")
             authrequest.anyRequest().authenticated();
         });
