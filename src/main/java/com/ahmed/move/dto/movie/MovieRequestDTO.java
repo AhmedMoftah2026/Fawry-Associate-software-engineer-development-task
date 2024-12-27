@@ -2,7 +2,7 @@ package com.ahmed.move.dto.movie;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+//to save custom movie in local db
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
