@@ -1,9 +1,8 @@
 package com.ahmed.move.error.handelars;
 import com.ahmed.move.dto.GeneralResponseDto;
-//import com.ahmed.move.error.dto.ErrorResponse;
 import com.ahmed.move.error.dto.ErrorResponse;
 import com.ahmed.move.error.exceptions.AbstractMovieException;
-import lombok.Data;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 import static org.springframework.http.HttpStatus.*;
-
 @Slf4j
 @org.springframework.web.bind.annotation.ControllerAdvice
 public class ControllerAdvice {

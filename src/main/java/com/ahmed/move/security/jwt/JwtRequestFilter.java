@@ -104,7 +104,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
             response.setContentType("application/json");
             GeneralResponseDto payload = GeneralResponseDto.builder()
-                    .data(Map.of("errorMessage", unauthorizedMessage))
+                    .error(Map.of("errorMessage", unauthorizedMessage))
                     .build();
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writeValue(response.getWriter(), payload);

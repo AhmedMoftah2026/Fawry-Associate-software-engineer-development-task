@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -90,10 +91,14 @@ public class MovieServiceImpl implements IMovieService {
     @Override
     public MovieResponseDTO findByTitle(String title) {
         log.info("Attempting to find movie with Title: {}", title);
+
         try {
-            Movie movie = movieRepository.findByTitle( title);
-            if (movie!=null)
-            return movieMapper.toResponseDTO(movie);
+            Optional<Movie> movieOpt = movieRepository.findByTitle( title);
+            if (movieOpt.isPresent()){
+                Movie movie = movieOpt.get();
+                return movieMapper.toResponseDTO(movie);
+            }
+
             throw new AbstractMovieException(" movie with Title: " + title+ " not found");
         } catch (Exception e) {
             log.error("Error occurred while fetching movie with Title {}: {}", title, e.getMessage(), e);
