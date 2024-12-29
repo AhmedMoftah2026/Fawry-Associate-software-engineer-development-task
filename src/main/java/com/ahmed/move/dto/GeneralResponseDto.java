@@ -17,4 +17,5 @@ public class GeneralResponseDto {
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime time;
     private Map<?,?> data;
+    private Map<?,?> error;
 }

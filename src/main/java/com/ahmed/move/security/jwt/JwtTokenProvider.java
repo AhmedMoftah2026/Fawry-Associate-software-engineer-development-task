@@ -1,6 +1,6 @@
-package com.ahmed.move.jwt;
+package com.ahmed.move.security.jwt;
 
-import com.ahmed.move.model.User;
+import com.ahmed.move.security.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

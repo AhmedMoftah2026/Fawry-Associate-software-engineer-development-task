@@ -1,8 +1,8 @@
-package com.ahmed.move.controller;
+package com.ahmed.move.security.controller;
 
 import com.ahmed.move.dto.GeneralResponseDto;
-import com.ahmed.move.dto.auth.LoginDTO;
-import com.ahmed.move.service.UserService;
+import com.ahmed.move.security.dto.auth.LoginRequestDTO;
+import com.ahmed.move.security.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +22,7 @@ public class AuthController {
 
     @PostMapping("/login")
     @Operation(summary = "Authenticate user.")
-    public ResponseEntity<GeneralResponseDto> login(@RequestBody LoginDTO dto) {
+    public ResponseEntity<GeneralResponseDto> login(@RequestBody LoginRequestDTO dto) {
         return ResponseEntity.ok(GeneralResponseDto.builder()
                 .time(LocalDateTime.now())
                 .data(Map.of(

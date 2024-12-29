@@ -1,8 +1,8 @@
 
-package com.ahmed.move.jwt;
+package com.ahmed.move.security.jwt;
 
 import com.ahmed.move.dto.GeneralResponseDto;
-import com.ahmed.move.enummration.Role;
+import com.ahmed.move.security.enummration.Role;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Enumeration;
 import java.util.Map;
 import java.util.Set;
 

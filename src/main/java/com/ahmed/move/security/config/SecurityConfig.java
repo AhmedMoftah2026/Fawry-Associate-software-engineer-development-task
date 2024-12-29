@@ -1,6 +1,6 @@
-package com.ahmed.move.config;
+package com.ahmed.move.security.config;
 
-import com.ahmed.move.jwt.JwtRequestFilter;
+import com.ahmed.move.security.jwt.JwtRequestFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

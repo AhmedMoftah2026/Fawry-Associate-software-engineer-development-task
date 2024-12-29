@@ -5,6 +5,7 @@ package com.ahmed.move.service.impl;
 import com.ahmed.move.dto.movie.MovieRequestDTO;
 import com.ahmed.move.dto.movie.MovieResponseDTO;
 import com.ahmed.move.dto.movie.OMDB_MovieResponseDto;
+import com.ahmed.move.error.exceptions.AbstractMovieException;
 import com.ahmed.move.mapper.MovieMapper;
 import com.ahmed.move.model.Movie;
 import com.ahmed.move.repository.MovieRepository;
@@ -91,19 +92,19 @@ public class MovieServiceImpl implements IMovieService {
         log.info("Attempting to find movie with Title: {}", title);
         try {
             Movie movie = movieRepository.findByTitle( title);
-
-                        log.warn("Movie with Title: {} not found", title);
-
-
-            log.info("Successfully found movie with Title: {}", title);
+            if (movie!=null)
             return movieMapper.toResponseDTO(movie);
+            throw new AbstractMovieException(" movie with Title: " + title+ " not found");
         } catch (Exception e) {
             log.error("Error occurred while fetching movie with Title {}: {}", title, e.getMessage(), e);
-            throw new IllegalArgumentException("Unable to find movie: " + e.getMessage(), e);
+            throw new AbstractMovieException(e.getMessage());
+//            throw new IllegalArgumentException("Unable to find movie: " + e.getMessage(), e);
         }
     }
-
 }
-
-
-
+// if (customerOpt.isPresent())
+//        return customerMapper.toDto(customerOpt.get());
+//        throw new AbstractTrustException(messagesUtil.getMessage("not.found"));
+//        } catch (Exception e) {
+//        throw new AbstractTrustException(e.getMessage());
+//        }

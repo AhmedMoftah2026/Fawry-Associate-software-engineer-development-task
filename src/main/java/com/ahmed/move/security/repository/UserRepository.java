@@ -1,5 +1,5 @@
-package com.ahmed.move.repository;
-import com.ahmed.move.model.User;
+package com.ahmed.move.security.repository;
+import com.ahmed.move.security.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

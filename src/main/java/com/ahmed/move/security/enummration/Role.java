@@ -1,4 +1,4 @@
-package com.ahmed.move.enummration;
+package com.ahmed.move.security.enummration;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

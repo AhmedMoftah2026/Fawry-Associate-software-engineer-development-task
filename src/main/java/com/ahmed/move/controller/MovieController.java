@@ -26,8 +26,8 @@ public class MovieController {
 
     @GetMapping ("/admin/search-in-OMDB")
     @Operation(summary = "Search for specific movie in OMDB server [Amin]")
-    public ResponseEntity<GeneralResponseDto> search (
-                                                      @RequestParam String title) {
+    public ResponseEntity<GeneralResponseDto> search ( @RequestParam String title) {
+
         OMDB_MovieResponseDto movieDetails = omdbClient.getMovieDetails(title);
         return ResponseEntity.ok(GeneralResponseDto.builder()
                 .time(LocalDateTime.now())
@@ -41,8 +41,8 @@ public class MovieController {
 
     @PostMapping ("/admin/search-in-OMDB-And-AddtoDB")
     @Operation(summary = "Search for specific movie in OMDB server And Add to Local-DB[Amin]")
-    public ResponseEntity<GeneralResponseDto> searchAndAddMovie(
-                                                                @RequestParam String title) {
+    public ResponseEntity<GeneralResponseDto> searchAndAddMovie(@RequestParam String title) {
+
         OMDB_MovieResponseDto movieDetails = omdbClient.getMovieDetails(title);
         MovieResponseDTO response = movieService.saveFromOmdb(movieDetails);
         return ResponseEntity.ok(GeneralResponseDto.builder()
@@ -57,8 +57,8 @@ public class MovieController {
 
     @PostMapping("/admin/addoutsideOMDB")
     @Operation(summary = "Add a new movie to app database Manually [Amin]")
-    public ResponseEntity<GeneralResponseDto> addMovie(
-                                                       @RequestBody MovieRequestDTO movieRequestDTO) {
+    public ResponseEntity<GeneralResponseDto> addMovie( @RequestBody MovieRequestDTO movieRequestDTO) {
+
         MovieResponseDTO response = movieService.save(movieRequestDTO);
         return ResponseEntity.ok(GeneralResponseDto.builder()
                 .time(LocalDateTime.now())
@@ -74,8 +74,8 @@ public class MovieController {
     @DeleteMapping("/admin/delete/{id}")
     @Operation(summary = "delete an existing movie from app database [Amin]")
 
-    public  ResponseEntity<GeneralResponseDto> deleteMovie(
-                                                           @PathVariable Long id) {
+    public  ResponseEntity<GeneralResponseDto> deleteMovie( @PathVariable Long id) {
+
         movieService.delete(id);
         return ResponseEntity.ok(GeneralResponseDto.builder()
                 .time(LocalDateTime.now())
@@ -102,8 +102,8 @@ public class MovieController {
 
     @GetMapping("/user/fetchbytitle")
     @Operation(summary = "Fetch Movie details by Title from db  [User]")
-    public ResponseEntity<GeneralResponseDto> getbytitlefromdb(
-                                                               @RequestParam String title) {
+    public ResponseEntity<GeneralResponseDto> getbytitlefromdb(@RequestParam String title) {
+
         return ResponseEntity.ok(GeneralResponseDto.builder()
                 .time(LocalDateTime.now())
                 .data(Map.of(

@@ -1,5 +1,5 @@
-package com.ahmed.move.model;
-import com.ahmed.move.enummration.Role;
+package com.ahmed.move.security.entity;
+import com.ahmed.move.security.enummration.Role;
 import jakarta.persistence.*;
 import lombok.*;
 

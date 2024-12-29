@@ -1,11 +1,11 @@
-package com.ahmed.move.service;
+package com.ahmed.move.security.service;
 
-import com.ahmed.move.dto.auth.LoginDTO;
-import com.ahmed.move.dto.auth.LoginResponseDTO;
-import com.ahmed.move.enummration.Role;
-import com.ahmed.move.jwt.JwtTokenProvider;
-import com.ahmed.move.model.User;
-import com.ahmed.move.repository.UserRepository;
+import com.ahmed.move.security.dto.auth.LoginRequestDTO;
+import com.ahmed.move.security.dto.auth.LoginResponseDTO;
+import com.ahmed.move.security.enummration.Role;
+import com.ahmed.move.security.jwt.JwtTokenProvider;
+import com.ahmed.move.security.entity.User;
+import com.ahmed.move.security.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 
@@ -23,7 +23,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider tokenProvider;
 
-    public LoginResponseDTO login(LoginDTO loginDTO) {
+    public LoginResponseDTO login(LoginRequestDTO loginDTO) {
         log.info("Starting user login...");
 
         try {

@@ -1,4 +1,4 @@
-package com.ahmed.move.dto.auth;
+package com.ahmed.move.security.dto.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class LoginResponseDTO {
-    private Long userId;
-    private String token;
+public class LoginRequestDTO {
+
+    private String username;
+    private String password;
 }
