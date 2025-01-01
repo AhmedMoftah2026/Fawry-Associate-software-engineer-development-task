@@ -23,14 +23,14 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider tokenProvider;
 
-    public LoginResponseDTO login(LoginRequestDTO loginDTO) {
+    public LoginResponseDTO login(LoginRequestDTO loginrequestDTO) {
         log.info("Starting user login...");
 
         try {
-            User user = userRepository.findByUsername(loginDTO.getUsername())
+            User user = userRepository.findByUsername(loginrequestDTO.getUsername())
                     .orElseThrow(() -> new IllegalArgumentException("Invalid username or password"));
 
-            if (!passwordEncoder.matches(loginDTO.getPassword(), user.getPassword()))
+            if (!passwordEncoder.matches(loginrequestDTO.getPassword(), user.getPassword()))
                 throw new IllegalArgumentException("Invalid password");
 
 

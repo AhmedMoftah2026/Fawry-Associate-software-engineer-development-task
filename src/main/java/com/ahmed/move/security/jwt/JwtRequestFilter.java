@@ -22,13 +22,15 @@ import java.util.Set;
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     private static final Set<String> publicRequests = Set.of(
+            "/swagger-ui/**",
+            "/v3/api-docs/**",
             "swagger",
             "v3/api-docs",
             "refresh-token",
             "auth",
             "swagger-ui",
-            "api-docs",
-            "sign-up"
+            "api-docs"
+
     );
 
     private static final Set<String> adminRequests = Set.of(
@@ -46,18 +48,18 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                                     @NonNull HttpServletResponse response,
                                     @NonNull FilterChain filterChain) {
         try {
-            String uri = request.getRequestURI();
-            if (!isPublicRequest(uri)) {
+            String url = request.getRequestURI();
+            if (!isPublicRequest(url)) {
                 String token = extractToken(request.getHeader("Authorization"));
                 if (token == null || !jwtTokenUtil.validateToken(token)) {
                     throwUnAuthorizedError(response);
                     return;
                 } else {
                     Role role  = Role.valueOf(jwtTokenUtil.getRoleFromToken(token));
-                    if (role == Role.ADMIN && !isAdminRequest(uri)) {
+                    if (role == Role.ADMIN && !isAdminRequest(url)) {
                         throwUnAuthorizedError(response);
                         return;
-                    } else if (role == Role.USER && !isUserRequest(uri)) {
+                    } else if (role == Role.USER && !isUserRequest(url)) {
                         throwUnAuthorizedError(response);
                         return;
                     }
